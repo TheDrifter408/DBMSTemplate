@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    
+    <!--Google Font links-->
+      <!--Body fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <!--Heading fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+    <!----------->
+    <!--Bootstrap Icon links-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!------------------------>
+    <!--CSS Style to use google fonts-->
+    <style>
+      body {
+        font-family: 'Rubik', sans-serif;
+      }
+      h5 {
+        font-family: 'Merriweather',serif;
+      }
+    </style>
+    <!--------------------------------->
     <title>Dashboard</title>
 </head>
 <body>
     <!--all copied from bootstrap navbar documentation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"><h5>LankaBangla</h5></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,6 +47,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Stock information</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clientForm">Client Information Form</a>
+            </li>
           </ul>
         </div>
     </nav>
@@ -32,6 +57,66 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Greetings <%= locals.name %> </h5>
+      </div>
+    </div>
+    <!--Card for middle of the page-->
+    
+
+    <!---Card for bottom of the page-->
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">EMI calculator<i class="bi bi-calculator-fill" style="font-size: 1.5rem; padding:1rem;"></i></h5>
+              <p class="card-text">Calculate your loan EMI</i></p>
+              <a class="btn btn-primary" href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Credit rating <i class="bi bi-bookmark-star-fill" style="font-size:1.5rem; padding: 1rem;"></i> </h5>
+              <p class="card-text">Check out our credit rating. </p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Media corner <i class="bi bi-camera-video-fill" style="font-size:1.5rem; padding: 1rem;"></i></h5>
+              <p class="card-text">Explore press release & videos. </p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">News and Notice <i class="bi bi-broadcast-pin" style="font-size:1.5rem; padding:1rem;"></i> </h5>
+              <p class="card-text">Explore our latest news & notices. </p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Articles<i class="bi bi-newspaper" style="font-size:1.5rem; padding: 1rem;"></i></h5>
+              <p class="card-text">Explore our latest articles</p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">FAQ<i class="bi bi-patch-question-fill" style="font-size:1.5rem; padding:1rem;"></i></h5>
+              <p class="card-text">We'll help you work it out</p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+          </div>
+        </div>
       </div>
     </div>
     <!-- script tags should be added before the body tag ends-->
