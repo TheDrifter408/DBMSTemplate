@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!--Google Font links-->
+      <!--Body fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+      <!--Heading fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+      <!----------->
+      <!--Bootstrap Icon links-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+      <!------------------------>
+      <!--CSS Style to use google fonts-->
+      <style>
+        body {
+          font-family: 'Rubik', sans-serif;
+        }
+        h5 {
+          font-family: 'Merriweather',serif;
+        }
+      </style>
+      <!--------------------------------->
+    <title>Admin Dashboard</title>
+</head>
+<body>
+  <!--Navigation bar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><h5>LankaBangla</h5></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard">Account Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">BO Form <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Stock information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="clientForm">Client Information Form</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index">Home</a>
+          </li>
+      </ul>
+    </div>
+</nav>
+  <!------------------>
+  <!--Charts using bootstrap's card component-->
+  <div class="row">
+    <div class="card col-sm" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">No. of Account Holders per division (Bar Chart)</h5>
+            </div>
+        </div>
+        <div class="card col-sm" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">No. of Account holders per branch in A thana(Bar Chart)</h5>
+            </div>
+        </div>
+        <div class="card col-sm" >
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">No. Male and Female A/C holders in a branch (pie chart)</h5>
+            </div>
+        </div>
+        <div class="card col-sm" >
+            <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">No. of BO A/C opening year-wise (Line Chart)</h5>
+        </div>
+        </div>
+        <div class="card col-sm" >
+            <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">No. of Male and Female A/C holders per division(bar Chart)</h5>
+        </div>
+        </div>
+        </div>
+        <div class="card col-sm">
+        <div class="card-body">
+            <img src="..." class="card-img-top" alt="...">
+            <h5 class="card-title">No. of BO A/C holders achieved by each Customer Relationship manager in a branch(Bar Chart)</h5>
+        </div>
+        </div>
+    </div>
+    <!-----Form to create a user essentially this is a post request by the admin----->
+    <div class="card mx-auto">
+        <h5>Create Client Accounts </h5>
+        <form action="/clientForm" method="post">
+            <div class="form-group">
+              <label for="accountNo">Account Number:</label>
+              <input type="text" class="form-control" id="accountNo" name="accountNo" aria-describedby="accountNo">
+              <small id="accountNo" class="form-text text-muted">We'll never share your Information with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="clientCode">Client Code:</label>
+              <input type="text" class="form-control" id="clientCode" name="clientCode">
+            </div>
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group">
+              <label for="clientName">Name:</label>
+              <input type="text" class="form-control" id="clientName" name="clientName">
+            </div>
+            <div class="form-group">
+              <label for="clientFather">Father's Name:</label>
+              <input type="datetime" class="form-control" id="clientFather" name="clientFather">
+            </div>
+            <div class="form-group">
+              <label for="clientMother">Mother's Name:</label>
+              <input type="text" class="form-control" id="clientMother" name="clientMother">
+            </div>
+            <div class="form-group">
+                <label for="clientSpouse">Spouse Name:</label>
+                <input type="text" class="form-control" id="clientSpouse" name="clientSpouse">
+            </div>
+            <div class="form-group">
+                <label for="clientCountry">Country:</label>
+                <input type="text" class="form-control" id="clientCountry" name="clientCountry">
+            </div>
+            <div class="form-group">
+                <label for="clientPhone">Phone Number:</label>
+                <input type="text" class="form-control" id="clientPhone" name="clientPhone">
+              </div>
+              <div class="form-group">
+                <label for="clientOperation">Operation (individual or Joint):</label>
+                <input type="text" class="form-control" id="clientOperation" name="clientOperation" >
+              </div>
+              <div class="form-group">
+                <label for="clientIntroId">Introducer's ID:</label>
+                <input type="text" class="form-control" id="clientIntroId" name="clientIntroId">
+              </div>
+              <div class="form-group">
+                <label for="clientBoNum">BO Number:</label>
+                <input type="text" class="form-control" id="clientBoNum" name="clientBoNum">
+              </div>
+              <div class="form-group">
+                <label for="clientBankAcc">Bank account Number:</label>
+                <input type="text" class="form-control" id="clientBankAcc" name="clientBankAcc">
+              </div>
+            <button type="submit" class="btn btn-primary">Create User</button>
+         </form>
+        </div>
+
+  <!------------------------------------------->
+    <!-- script tags should be added before the body tag ends-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+</html>
