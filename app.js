@@ -4,6 +4,7 @@ const express = require('express');
 //multer package to handle multipart form data
 const multer = require('multer');
 const upload = multer();
+
 // The port number the app will listen on
 const PORT = 5500
 // 'app' is an instance of express()

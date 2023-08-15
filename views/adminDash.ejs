@@ -18,6 +18,7 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
       <!------------------------>
       <!--CSS Style to use google fonts-->
+      <script src='https://cdn.plot.ly/plotly-2.25.2.min.js'></script>
       <style>
         body {
           font-family: 'Rubik', sans-serif;
@@ -57,46 +58,121 @@
     </div>
 </nav>
   <!------------------>
-  <!--Charts using bootstrap's card component-->
-  <div class="row">
-    <div class="card col-sm" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">No. of Account Holders per division (Bar Chart)</h5>
-            </div>
-        </div>
-        <div class="card col-sm" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">No. of Account holders per branch in A thana(Bar Chart)</h5>
-            </div>
-        </div>
-        <div class="card col-sm" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">No. Male and Female A/C holders in a branch (pie chart)</h5>
-            </div>
-        </div>
-        <div class="card col-sm" >
-            <img src="..." class="card-img-top" alt="...">
+  <!--Charts using bootstrap's card component-->  
+  <!--Pie chart-->
+      <div class="card">
         <div class="card-body">
-            <h5 class="card-title">No. of BO A/C opening year-wise (Line Chart)</h5>
-        </div>
-        </div>
-        <div class="card col-sm" >
-            <img src="..." class="card-img-top" alt="...">
+          <h5 class="card-title">Number of Male & Female BO A/C holders in a Branch</h5>
+          <div id="myDivPerBranch" class="container-fluid"></div>
+              <script>
+                var male_data_per_branch = {
+                  values: [12,8,0],
+                  labels: ['Online','Agrabad','Principal'],
+                  name:'Male',
+                  type: 'pie'
+                  };
+
+                  var female_data_per_branch = {
+                    values: [1,3,1],
+                    labels: ['Online','Agrabad','Principal'],
+                    name:'Female',
+                    type: 'pie'
+                  };
+
+                var data_per_branch = [male_data_per_branch, female_data_per_branch];
+
+                var layout_per_branch = {
+                  height: 400,
+                  width: 500
+                };
+
+                Plotly.newPlot('myDivPerBranch', data_per_branch, layout_per_branch);
+            </script>
+          </div>
+      </div>
+      <!---------------------------------->
+      <div class="card" >
         <div class="card-body">
-            <h5 class="card-title">No. of Male and Female A/C holders per division(bar Chart)</h5>
+            <h5 class="card-title">No. of Male and Female A/C holders per division</h5>
+            <div id="myDivPerDivision" class="container-fluid"></div>
+                <script>
+                  var male_data_per_div = {
+                    x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
+                    y: [8,0,4,0,1,0,1,1,1,1,1,1,1],
+                    name:'Male',
+                    type: 'bar'
+                    };
+
+                    var female_data_per_div = {
+                      x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
+                      y: [2,1,0,1,0,1,0,0,0,0,0,0,0],
+                      name:'Female',
+                      type: 'bar'
+                    };
+
+                  var data_per_div = [male_data_per_div, female_data_per_div];
+
+                  var layout_per_div = {barmode: 'group'};
+
+                  Plotly.newPlot('myDivPerDivision', data_per_div, layout_per_div);
+              </script>
         </div>
-        </div>
-        </div>
-        <div class="card col-sm">
+      </div>
+      <div class="card" >
         <div class="card-body">
-            <img src="..." class="card-img-top" alt="...">
-            <h5 class="card-title">No. of BO A/C holders achieved by each Customer Relationship manager in a branch(Bar Chart)</h5>
+            <h5 class="card-title">Total of BO A/C holders per division</h5>
+            <div id="myDivTotalPerDivision" class="container-fluid"></div>
+                <script>
+                  var data_per_div = {
+                    x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
+                    y: [10,1,4,1,1,1,1,1,1,1,1,1,1],
+                    name:'Male',
+                    type: 'bar'
+                    };
+                  var total_data_per_div = [data_per_div];
+
+                  var total_layout_per_div = {barmode: 'group'};
+
+                  Plotly.newPlot('myDivTotalPerDivision', total_data_per_div, total_layout_per_div);
+              </script>
         </div>
+      </div>
+      <div class="card" >
+        <div class="card-body">
+            <h5 class="card-title">Number of BO A/C holders per Branch In a Thana</h5>
+            <!-- <div id="myDivTotalPerBranchInAThana" class="container-fluid"></div>
+                <script>
+                  var data_per_div = {
+                    x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
+                    y: [10,1,4,1,1,1,1,1,1,1,1,1,1],
+                    name:'Male',
+                    type: 'bar'
+                    };
+                  var total_data_per_div = [data_per_div];
+
+                  var total_layout_per_div = {barmode: 'group'};
+
+                  Plotly.newPlot('myDivTotalPerBranchInAThana', total_data_per_div, total_layout_per_div);
+              </script> -->
         </div>
+      </div>
     </div>
+    <!--Getting all Accounts-->
+    <!-- <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Show Clients</h5>
+        <form action="/adminDash" enctype="multipart/form-data" method="get" >
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="card-body">
+            <p class="card-text">
+              <ul>
+                
+              </ul>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div> -->
     <!-----Posting a new client------>
     <div class="card">
       <div class="card-body">
@@ -119,15 +195,14 @@
       </div>
     </div>
 
-
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Your Query {%= locals.text %}</h5>
-              
-            </div>
-          </div>
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Your Query </h5>
+          
         </div>
+      </div>
+    </div>
 
   <!------------------------------------------->
     <!-- script tags should be added before the body tag ends-->

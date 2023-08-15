@@ -5,10 +5,23 @@ const adminRoute = express.Router();
 
 const db = require('../server/connection');
 
-
-adminRoute.get('/',(req,res) => {
+adminRoute.use('/',(req,res) => {
     res.render('adminDash');
 })
+
+const sqlQuery = 'SELECT * FROM lankabangla.client';
+db.query(sqlQuery, (error, results) => {
+    if (error) {
+        console.error('Error querying the database:', error);
+        return;
+    }
+
+    // Pass the results to the EJS template for rendering
+    // Render the template and pass the data
+    adminRoute.get('/', (req, res) => {
+        res.render('adminDash', { results: results });
+    });
+});
 
 //Add the sql queries here
 adminRoute.post('/', upload.none(), (req,res) => {
@@ -19,14 +32,17 @@ adminRoute.post('/', upload.none(), (req,res) => {
         res.json({message: 'bank account added.'});
     });*/
     bo_sql = `INSERT INTO lankabangla.bo_account (bo_number) VALUES (?)`;
-    db.query(bo_sql,[clientBoNum],(err,results) => {
+    /*db.query(bo_sql,[clientBoNum],(err,results) => {
         if(err){
-            res.render('adminDash',{text: "Entry Failed"});
+            res.render('adminDash',{text: "Entry Failed" || ''});
         } else {
-            res.render('adminDash',{text:"Entry Success"});
+            res.render('adminDash',{text:"Entry Success" || ''});
         }
-    });
+    });*/
 });
+adminRoute.put('/',upload.none(), (req,res) => {
+
+})
 
 
 
