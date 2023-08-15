@@ -6,7 +6,8 @@ const db = mysql.createConnection({
     user:'Nurullah',
     password: 'nuru11@hA1N00r',
     database: 'lankabangla'
-})
+})    
+
 
 //testing the connection 
 

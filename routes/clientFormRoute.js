@@ -1,13 +1,7 @@
 const express = require("express");
 const db = require('../server/connection');
 
-const db = mysql.createConnection({
-    host:'localhost',
-    user:'Nurullah',
-    password: 'nuru11@hA1N00r',
-    database: 'lankabangla'
-})
-
+db.connect();
 //testing the connection 
 /*
 db.connect((err) => {
@@ -26,7 +20,6 @@ clientRoute.get('/',(req,res) => {
 let client = {};
 
 clientRoute.post('/',(req,res) => {
-
     let clientAccountNum = req.body.accountNo;
     let clientCode = req.body.clientCode;
     let clientTitle = req.body.clientTitle;
@@ -43,13 +36,13 @@ clientRoute.post('/',(req,res) => {
     console.log('Client Name: ' + clientName);
     console.log('Client account number: ' + clientAccountNum);
     statement = `INSERT INTO client(account_number,client_name) VALUES(${clientAccountNum},'${clientName}');`;
-    db.query(statement,(err,results,fields) => {
+    /*db.query(statement,(err,results,fields) => {
         if(err){
             console.error("Unsuccessful " + err);
         } else {
             console.log(results);    
         }
-    })
+    })*/
 })
 
 

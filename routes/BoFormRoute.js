@@ -2,7 +2,7 @@
 const express = require('express');
 
 //Create an instance of express.Router -- it is use to simplify webpage links
-const dbrouter = express.Router();
+const boformRouter = express.Router();
 
 //Dummy name and some statistics
 dummyData = {
@@ -10,9 +10,9 @@ dummyData = {
 }
 
 //just like with the express instance in app.js
-dbrouter.get('/',(req,res) => {
-    res.render('dashboard',{name: dummyData.name});
+boformRouter.get('/',(req,res) => {
+    res.render('BOForm');
 })
 
 //Always export all router functions
-module.exports = dbrouter;
+module.exports = boformRouter;
