@@ -6,7 +6,6 @@ const adminRoute = express.Router();
 const db = require('../server/connection');
 
 adminRoute.get('/',(req,res) => {
-    console.log("Its getting it now.");
     res.render('adminDash');
 })
 
@@ -32,7 +31,12 @@ adminRoute.post('/', upload.none(), (req,res) => {
     bank_sql = 'INSERT INTO lankabangla.bank (account) VALUES (?)';
     db.query(bank_sql,[bankAccountNum],(err,results) => {
         if (err) throw err;
-        console.log(bankAccountNum)
+        else if(results.length > 0){
+            res.render('adminDash',{status: 'Query successful' || ''})
+        }
+        else {
+            res.render('adminDash',{status: 'Has Failed' || ''})
+        }
     });
     /*bo_sql = `INSERT INTO lankabangla.bo_account (bo_number) VALUES (?)`;
     db.query(bo_sql,[clientBoNum],(err,results) => {

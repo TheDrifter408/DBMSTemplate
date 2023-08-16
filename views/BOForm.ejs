@@ -29,9 +29,9 @@
       <!--------------------------------->
     <title>BO Form</title>
 </head>
-<body>
+<body style="background-color: #25AAB1">
   <!--Navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <a class="navbar-brand" href="#"><h5>LankaBangla</h5></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -45,42 +45,43 @@
           <a class="nav-link" href="#">BO Form <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Stock information</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="clientForm">Client Information Form</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index">Home</a>
+        </li>
+        
       </ul>
     </div>
 </nav>
   <!------------------>
-  <div class="row">
-    <div class="card mx-auto">
+  <div class="container-fluid d-flex justify-content-center p-3">
+    <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
       <div class="card-body">
         <h5 class="card-title">BO Account Information Form</h5>
-        <form>
+        <form action="/" enctype="multipart/form-data" method="post">
             <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
+              <label for="phoneNumber">Phone Number:</label>
               <input type="text" class="form-control" id="phoneNumber" aria-describedby="phoneNumber">
             </div>
             <div class="form-group">
-              <label for="UserEmail">Email</label>
+              <label for="UserEmail">Email:</label>
               <input type="email" class="form-control" id="UserEmail">
             </div>
             <div class="form-group">
-              <label for="userNID">Check me out</label>
+              <label for="userNID">NID: </label>
               <input type="text" class="form-control" id="userNID">
             </div>
             <div class="form-group">
-              <label for="userOccupation">Occupation</label>
+              <label for="userOccupation">Occupation:</label>
               <input type="text" class="form-control" id="userOccupation">
             </div>
             <div class="form-group">
-              <label for="userDOB">Date of Birth</label>
+              <label for="userDOB">Date of Birth:</label>
               <input type="datetime" class="form-control" id="userDOB">
             </div>
             <div class="form-group">
-              <label for="userNationality">Nationality</label>
+              <label for="userNationality">Nationality:</label>
               <input type="text" class="form-control" id="userNationality">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -32,7 +32,7 @@
 </head>
 <body>
   <!--Navigation bar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <a class="navbar-brand" href="#"><h5>LankaBangla</h5></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,13 +43,7 @@
           <a class="nav-link" href="dashboard">Account Information</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">BO Form <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#">Stock information</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="clientForm">Client Information Form</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="index">Home</a>
@@ -60,10 +54,10 @@
   <!------------------>
   <!--Charts using bootstrap's card component-->  
   <!--Pie chart-->
-      <div class="card">
+      <div  class="card border border-success m-1 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
           <h5 class="card-title">Number of Male & Female BO A/C holders in a Branch</h5>
-          <div id="myDivPerBranch" class="container-fluid"></div>
+          <div id="myDivPerBranch" class="container-fluid d-flex justify-content-center p-3"></div>
               <script>
                 var male_data_per_branch = {
                   values: [12,8,0],
@@ -91,10 +85,10 @@
           </div>
       </div>
       <!---------------------------------->
-      <div class="card" >
+      <div  class="card border border-success m-1 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
             <h5 class="card-title">No. of Male and Female A/C holders per division</h5>
-            <div id="myDivPerDivision" class="container-fluid"></div>
+            <div id="myDivPerDivision" class="container-fluid d-flex justify-content-center"></div>
                 <script>
                   var male_data_per_div = {
                     x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
@@ -118,10 +112,10 @@
               </script>
         </div>
       </div>
-      <div class="card" >
+      <div  class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
             <h5 class="card-title">Total of BO A/C holders per division</h5>
-            <div id="myDivTotalPerDivision" class="container-fluid"></div>
+            <div id="myDivTotalPerDivision" class="container-fluid d-flex justify-content-center"></div>
                 <script>
                   var data_per_div = {
                     x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
@@ -137,10 +131,10 @@
               </script>
         </div>
       </div>
-      <div class="card" >
+     <!--  <div class="card" >
         <div class="card-body">
             <h5 class="card-title">Number of BO A/C holders per Branch In a Thana</h5>
-            <!-- <div id="myDivTotalPerBranchInAThana" class="container-fluid"></div>
+             <div id="myDivTotalPerBranchInAThana" class="container-fluid"></div>
                 <script>
                   var data_per_div = {
                     x: ['DHAKA','BARISAL','CHATTOGRAM','MUNSHIGANJ','KHULNA','NILPHAMARI ','BRAHMANBARIA','SHERPUR','TANGAIL','BHOLA','JASHORE','MUNSHIGANJ SADAR','CHANDPUR'],
@@ -153,9 +147,9 @@
                   var total_layout_per_div = {barmode: 'group'};
 
                   Plotly.newPlot('myDivTotalPerBranchInAThana', total_data_per_div, total_layout_per_div);
-              </script> -->
+              </script> 
         </div>
-      </div>
+      </div> -->
     </div>
     <!--Getting all Accounts-->
     <!-- <div class="card">
@@ -174,7 +168,7 @@
       </div>
     </div> -->
     <!-----Posting a new client------>
-    <div class="card">
+    <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
       <div class="card-body">
         <h5 class="card-title">Create a new Client</h5>
         <form action="/adminDash" enctype="multipart/form-data" method="post" >
@@ -196,9 +190,9 @@
     </div>
 
     <div class="container-fluid">
-      <div class="card">
+      <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
-          <h5 class="card-title">Your Query </h5>
+          <h5 class="card-title">Your Query: <%= locals.status %> </h5>
           
         </div>
       </div>

@@ -33,7 +33,7 @@ app.get('/',(req,res) => {
 
 
 app.use('/dashboard',dashboard);
-app.use('/form',BoForm);
+app.use('/boform',BoForm);
 app.use('/clientForm',clientForm);
 app.use('/AboutUs',aboutUs);
 app.use('/login',logIn);
