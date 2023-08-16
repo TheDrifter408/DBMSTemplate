@@ -1,7 +1,7 @@
 const express = require("express");
 const db = require('../server/connection');
 
-db.connect();
+
 //testing the connection 
 /*
 db.connect((err) => {
