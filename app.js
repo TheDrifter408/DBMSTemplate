@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //---------------------------------------
 //Bring in the dashboard router 'DBroute.js'
-const dashboard = require('./routes/clientDashRoute');
+const clientDash = require('./routes/clientDashRoute');
 const BoForm = require('./routes/BoFormRoute');
 const clientForm = require('./routes/clientFormRoute');
 const aboutUs = require('./routes/aboutUsRoute');
@@ -32,7 +32,7 @@ app.get('/',(req,res) => {
 })
 
 
-app.use('/dashboard',dashboard);
+app.use('/clientDash',clientDash);
 app.use('/boform',BoForm);
 app.use('/clientForm',clientForm);
 app.use('/AboutUs',aboutUs);

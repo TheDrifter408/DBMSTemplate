@@ -25,8 +25,6 @@ logIn.get('/',(req,res) => {
 //Getting the form data
 logIn.post('/',upload.none(),(req,res) => {
     const {userEmail , userPassword} = req.body;
-    console.log("user email:",userEmail);
-    console.log('user pass:',userPassword);
     if(userEmail === client.email){
         if(userPassword === client.pass){
             res.redirect('/clientDash');

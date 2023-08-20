@@ -50,14 +50,14 @@
           </li>
       </ul>
     </div>
-</nav>
+  </nav>
   <!------------------>
   <!--Charts using bootstrap's card component-->  
   <!--Pie chart-->
       <div  class="card border border-success m-1 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
           <h5 class="card-title">Number of Male & Female BO A/C holders in a Branch</h5>
-          <div id="myDivPerBranch" class="container-fluid d-flex justify-content-center p-3"></div>
+          <div id="myDivPerBranch" class="container-fluid d-flex justify-content-center"></div>
               <script>
                 var male_data_per_branch = {
                   values: [12,8,0],
@@ -85,7 +85,7 @@
           </div>
       </div>
       <!---------------------------------->
-      <div  class="card border border-success m-1 shadow" style="background-color: #B7D7FF;">
+      <div class="card border border-success m-1 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
             <h5 class="card-title">No. of Male and Female A/C holders per division</h5>
             <div id="myDivPerDivision" class="container-fluid d-flex justify-content-center"></div>
@@ -150,7 +150,6 @@
               </script> 
         </div>
       </div> -->
-    </div>
     <!--Getting all Accounts-->
     <!-- <div class="card">
       <div class="card-body">
@@ -167,10 +166,10 @@
         </form>
       </div>
     </div> -->
-    <!-----Posting a new client------>
+    <!-----Posting a new entry------>
     <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
       <div class="card-body">
-        <h5 class="card-title">Create a new Client</h5>
+        <h5 class="card-title">Create Client</h5>
         <form action="/adminDash" enctype="multipart/form-data" method="post" >
           <div class="form-group">
             <label for="bankAccountNum">Bank Account: </label>
@@ -188,11 +187,55 @@
         </form>
       </div>
     </div>
-
+    <!------------------------------>
+    <!--Form for deleting an entry-->
+    <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
+      <div class="card-body">
+        <h5 class="card-title">Delete Client</h5>
+        <form action="/adminDash" enctype="multipart/form-data" method="delete" >
+          <div class="form-group">
+            <label for="bankAccountNum">Bank Account: </label>
+            <input type="text" class="form-control" name="bankAccountNum" id="bankAccountNum">
+          </div>
+          <div class="form-group">
+            <label for="clientName">Client Name:</label>
+            <input type="text" class="form-control" name="clientName" id="clientName">
+          </div>
+          <div class="form-group">
+            <label for="clientBoNum">BO Number: </label>
+            <input type="text" class="form-control" name="clientBoNum" id="clientBoNum">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!------------------------------>
+    <!--Form for updating an entry-->
+    <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
+      <div class="card-body">
+        <h5 class="card-title">Update Client</h5>
+        <form action="/adminDash" enctype="multipart/form-data" method="delete" >
+          <div class="form-group">
+            <label for="bankAccountNum">Bank Account: </label>
+            <input type="text" class="form-control" name="bankAccountNum" id="bankAccountNum">
+          </div>
+          <div class="form-group">
+            <label for="clientName">Client Name:</label>
+            <input type="text" class="form-control" name="clientName" id="clientName">
+          </div>
+          <div class="form-group">
+            <label for="clientBoNum">BO Number: </label>
+            <input type="text" class="form-control" name="clientBoNum" id="clientBoNum">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!------------------------------>
     <div class="container-fluid">
-      <div class="card border border-success m-1 p-1 shadow" style="background-color: #B7D7FF;">
+      <div class="card border border-success m-1 p-2 shadow" style="background-color: #B7D7FF;">
         <div class="card-body">
-          <h5 class="card-title">Your Query: <%= locals.status %> </h5>
+          <h5 class="card-title">Your Query <%= locals.status %> : </h5>
           
         </div>
       </div>
