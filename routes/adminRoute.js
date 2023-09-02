@@ -28,27 +28,38 @@ adminRoute.get('/',(req,res) => {
 
 //Add the sql queries here
 adminRoute.post('/', upload.none(), (req,res) => {
-    const {bankAccountNum, clientName, clientBoNum} = req.body;
+    const {postBankAccountNum, postClientName, postClientBoNum} = req.body;
     let acc_num = 1009537;
     bank_sql = 'INSERT INTO lankabangla.bank (account) VALUES (?)';
     //parent tables must be filled first
-    db.query(bank_sql,[bankAccountNum],(err,results) => {
+    db.query(bank_sql,[postBankAccountNum],(err,results) => {
         if (err) throw err;
         console.log('bank account added');
     });
     bo_sql = `INSERT INTO lankabangla.bo_account (bo_number) VALUES (?)`;
-    db.query(bo_sql,[clientBoNum],(err,results) => {
+    db.query(bo_sql,[postClientBoNum],(err,results) => {
         if(err)throw err;
         console.log('bo account addded');
     });
     //client is a child table
-    client_sql = `INSERT INTO lankabangla.client (account_number,client_name,bo_account_number,bank_account_number) VALUES (${acc_num},${clientName},${clientBoNum},${bankAccountNum});`;
+    client_sql = `INSERT INTO lankabangla.client (account_number,client_name,bo_account_number,bank_account_number) VALUES (${acc_num},${postClientName},${postClientBoNum},${postBankAccountNum});`;
     db.query(client_sql, (err,results) => {
         if(err) throw err;
         console.log('client Added.');
     })
 });
 
+adminRoute.delete('/',upload.none(), (req,res) => {
+    const {delClientName, delBankAccountNum, delClientBoNum} = req.body;
+    let acc_num = 1009536;
+    //delete child records first
+    client_sql = `DELETE FROM lankabangla.client (account_num, client_name,bo_account_number,bank_account_number) VALUES 
+    (${acc_num},${delClientName},${delClientBoNum},${delBankAccountNum});`;
+    db.query(client_sql, (err, results) => {
+        if(err) throw err;
+        console.log('client deleted');
+    })
+})
 
 
 

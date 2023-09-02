@@ -172,16 +172,16 @@
         <h5 class="card-title">Create Client</h5>
         <form action="/adminDash" enctype="multipart/form-data" method="post" >
           <div class="form-group">
-            <label for="bankAccountNum">Bank Account: </label>
-            <input type="text" class="form-control" name="bankAccountNum" id="bankAccountNum">
+            <label for="clientName">Client Name:</label>
+            <input type="text" class="form-control" name="postClientName" id="clientName">
           </div>
           <div class="form-group">
-            <label for="clientName">Client Name:</label>
-            <input type="text" class="form-control" name="clientName" id="clientName">
+            <label for="bankAccountNum">Bank Account: </label>
+            <input type="text" class="form-control" name="postBankAccountNum" id="bankAccountNum">
           </div>
           <div class="form-group">
             <label for="clientBoNum">BO Number: </label>
-            <input type="text" class="form-control" name="clientBoNum" id="clientBoNum">
+            <input type="text" class="form-control" name="postClientBoNum" id="clientBoNum">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -194,16 +194,16 @@
         <h5 class="card-title">Delete Client</h5>
         <form action="/adminDash" enctype="multipart/form-data" method="delete" >
           <div class="form-group">
-            <label for="bankAccountNum">Bank Account: </label>
-            <input type="text" class="form-control" name="bankAccountNum" id="bankAccountNum">
+            <label for="clientName">Client Name:</label>
+            <input type="text" class="form-control" name="delClientName" id="clientName">
           </div>
           <div class="form-group">
-            <label for="clientName">Client Name:</label>
-            <input type="text" class="form-control" name="clientName" id="clientName">
+            <label for="bankAccountNum">Bank Account: </label>
+            <input type="text" class="form-control" name="delBankAccountNum" id="bankAccountNum">
           </div>
           <div class="form-group">
             <label for="clientBoNum">BO Number: </label>
-            <input type="text" class="form-control" name="clientBoNum" id="clientBoNum">
+            <input type="text" class="form-control" name="delClientBoNum" id="clientBoNum">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -216,12 +216,12 @@
         <h5 class="card-title">Update Client</h5>
         <form action="/adminDash" enctype="multipart/form-data" method="delete" >
           <div class="form-group">
-            <label for="bankAccountNum">Bank Account: </label>
-            <input type="text" class="form-control" name="bankAccountNum" id="bankAccountNum">
-          </div>
-          <div class="form-group">
             <label for="clientName">Client Name:</label>
             <input type="text" class="form-control" name="clientName" id="clientName">
+          </div>
+          <div class="form-group">
+            <label for="bankAccountNum">Bank Account: </label>
+            <input type="text" class="form-control" name="bankAccountNum" id="bankAccountNum">
           </div>
           <div class="form-group">
             <label for="clientBoNum">BO Number: </label>
