@@ -48,7 +48,7 @@ adminRoute.post('/', upload.none(), (req,res) => {
         console.log('client Added.');
     })
 });
-
+//Finish delete and put requests
 adminRoute.delete('/',upload.none(), (req,res) => {
     const {delClientName, delBankAccountNum, delClientBoNum} = req.body;
     let acc_num = 1009536;
