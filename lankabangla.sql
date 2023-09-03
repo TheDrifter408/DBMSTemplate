@@ -90,12 +90,9 @@ DROP TABLE IF EXISTS `bank`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bank` (
-  `bank_name` varchar(45) NOT NULL,
+  `bank_name` varchar(40) NOT NULL,
   `account` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`bank_name`),
-  UNIQUE KEY `bank_code_UNIQUE` (`bank_name`),
-  UNIQUE KEY `bank_code` (`bank_name`),
-  UNIQUE KEY `bank_code_2` (`bank_name`),
   UNIQUE KEY `account_UNIQUE` (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -122,7 +119,7 @@ CREATE TABLE `bank_branch_name` (
   `branch_name` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`bank_name`),
   UNIQUE KEY `branch_name_UNIQUE` (`branch_name`),
-  CONSTRAINT `bank_name` FOREIGN KEY (`bank_name`) REFERENCES `bank` (`bank_name`)
+  CONSTRAINT `bankName` FOREIGN KEY (`bank_name`) REFERENCES `bank` (`bank_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -707,4 +704,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-02 21:41:44
+-- Dump completed on 2023-09-03 18:48:34
