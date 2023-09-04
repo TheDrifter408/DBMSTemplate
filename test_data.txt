@@ -1,0 +1,21 @@
+Create Example
+Name: Ateef Islam
+Account Num: 1008476
+bank Name: BASIC Bank Limited
+bank account num: 100001455
+Bo accout num: 620232349173663
+
+Update Example: 
+Name: Ateef Islam
+Account Num: 1008476
+phone number: 01818800025
+Father Name: Monosij Islam
+Mother Name: Fahima Jahan
+
+
+
+Delete Example: 
+Name: Ateef Islam
+account: 1008476
+bank account num: 100001455
+Bo Number: 620232349173663
