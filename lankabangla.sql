@@ -48,18 +48,18 @@ DROP TABLE IF EXISTS `authorized_person`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `authorized_person` (
   `account_number` varchar(8) NOT NULL,
-  `title` varchar(30) DEFAULT NULL,
+  `title` varchar(3) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
   `spouse_name` varchar(30) DEFAULT NULL,
   `mother_name` varchar(30) DEFAULT NULL,
   `father_name` varchar(30) DEFAULT NULL,
   `nid` varchar(10) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
+  `address` varchar(70) DEFAULT NULL,
   `country` varchar(20) DEFAULT NULL,
   `dateofbirth` date DEFAULT NULL,
   `occupation` varchar(20) DEFAULT NULL,
   `phone_number` varchar(11) DEFAULT NULL,
-  `email` varchar(20) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
   `nationality` varchar(30) DEFAULT NULL,
   `photo` varchar(16) DEFAULT NULL,
   `signature` varchar(16) DEFAULT NULL,
@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `bank`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bank` (
-  `account` varchar(20) NOT NULL,
+  `account` varchar(10) NOT NULL,
   `bank_name` varchar(40) DEFAULT NULL,
   `branch_name` varchar(45) DEFAULT NULL,
   `routing_number` varchar(9) DEFAULT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `bank` (
 
 LOCK TABLES `bank` WRITE;
 /*!40000 ALTER TABLE `bank` DISABLE KEYS */;
-INSERT INTO `bank` VALUES ('100001005','Al-Arafah Islami Bank Limited',NULL,NULL),('100001186','Dutch-Bangla Bank Limited',NULL,NULL),('100001345','Bangladesh Krishi Bank',NULL,NULL),('100001392','Agrani Bank Limited',NULL,NULL),('100001456','Bengal Commercial Bank Limited',NULL,NULL),('100002779','Bangladesh Commerce Bank Limited',NULL,NULL),('100003042','Citibank N.A',NULL,NULL),('100003556','BRAC Bank Limited',NULL,NULL),('100003971','First Security Islami Bank Limited',NULL,NULL),('100004605','Commercial Bank of Ceylon Limited',NULL,NULL),('100005010','BASIC Bank Limited',NULL,NULL),('100005476','Community Bank Bangladesh Limited',NULL,NULL),('100005633','Dhaka Bank Limited',NULL,NULL),('100006120','Habib Bank Ltd.',NULL,NULL),('100006512','Islami Bank Bangladesh PLC',NULL,NULL),('100006956','AB Bank Limited',NULL,NULL),('100007089','Bank Asia Limited',NULL,NULL),('100007477','EXIM Bank Limited',NULL,NULL),('100007516','IFIC Bank PLC',NULL,NULL),('100007710','Global Islami Bank PLC',NULL,NULL),('100008495','ICB Islamic Bank Ltd.',NULL,NULL),('100009172','Eastern Bank Limited',NULL,NULL),('100009173','Janata Bank PLC',NULL,NULL),('100009624','Citizens Bank PLC',NULL,NULL),('100009813','Bangladesh Development Bank Limited',NULL,NULL),('100009822','Bank Al-Falah Limited',NULL,NULL),('100009823','Janata Bank PLC',NULL,NULL);
+INSERT INTO `bank` VALUES ('100001005','Al-Arafah Islami Bank Limited',NULL,NULL),('100001186','Dutch-Bangla Bank Limited',NULL,NULL),('100001345','Bangladesh Krishi Bank',NULL,NULL),('100001392','Agrani Bank Limited',NULL,NULL),('100001456','Bengal Commercial Bank Limited',NULL,NULL),('100002779','Bangladesh Commerce Bank Limited',NULL,NULL),('100003042','Citibank N.A',NULL,NULL),('100003556','BRAC Bank Limited',NULL,NULL),('100003971','First Security Islami Bank Limited',NULL,NULL),('100004605','Commercial Bank of Ceylon Limited',NULL,NULL),('100005010','BASIC Bank Limited',NULL,NULL),('100005476','Community Bank Bangladesh Limited',NULL,NULL),('100005633','Dhaka Bank Limited',NULL,NULL),('100006120','Habib Bank Ltd.',NULL,NULL),('100006512','Islami Bank Bangladesh PLC',NULL,NULL),('100006956','AB Bank Limited',NULL,NULL),('100007089','Bank Asia Limited',NULL,NULL),('100007477','EXIM Bank Limited',NULL,NULL),('100007516','IFIC Bank PLC',NULL,NULL),('100007710','Global Islami Bank PLC',NULL,NULL),('100008495','ICB Islamic Bank Ltd.',NULL,NULL),('100009172','Eastern Bank Limited',NULL,NULL),('100009173','Janata Bank PLC',NULL,NULL),('100009624','Citizens Bank PLC',NULL,NULL),('100009813','Bangladesh Development Bank Limited',NULL,NULL),('100009822','Bank Al-Falah Limited',NULL,NULL),('100009823','Janata Bank PLC',NULL,NULL),('undefined','undefined',NULL,NULL);
 /*!40000 ALTER TABLE `bank` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +195,7 @@ CREATE TABLE `client` (
   `permanent_city` varchar(30) DEFAULT NULL,
   `permanent_post` varchar(5) DEFAULT NULL,
   `branch` varchar(30) DEFAULT NULL,
-  `phone_number` varchar(13) DEFAULT NULL,
+  `phone_number` varchar(11) DEFAULT NULL,
   `operation` varchar(45) DEFAULT NULL,
   `intro_id` varchar(8) DEFAULT NULL,
   `bo_account_number` varchar(16) DEFAULT NULL,
@@ -205,11 +205,10 @@ CREATE TABLE `client` (
   UNIQUE KEY `client_code_UNIQUE` (`client_code`),
   UNIQUE KEY `bo_number_UNIQUE` (`bo_account_number`),
   UNIQUE KEY `phone_number_UNIQUE` (`phone_number`),
-  UNIQUE KEY `bank_account_number_UNIQUE` (`bank_account_number`),
   KEY `intro_id_idx` (`intro_id`),
   KEY `bank_account_number_idx` (`bank_account_number`),
-  CONSTRAINT `bank_account_number` FOREIGN KEY (`bank_account_number`) REFERENCES `bank` (`account`),
   CONSTRAINT `bo_account_number` FOREIGN KEY (`bo_account_number`) REFERENCES `bo_account` (`bo_number`),
+  CONSTRAINT `client_bank_account_number` FOREIGN KEY (`bank_account_number`) REFERENCES `bank` (`account`),
   CONSTRAINT `introducer_id` FOREIGN KEY (`intro_id`) REFERENCES `introducer` (`Introducer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -258,10 +257,10 @@ DROP TABLE IF EXISTS `first_account`;
 CREATE TABLE `first_account` (
   `first_account_number` varchar(8) NOT NULL,
   `nid` varchar(10) DEFAULT NULL,
-  `dateOfbirth` datetime DEFAULT NULL,
+  `dateOfbirth` date DEFAULT NULL,
   `occupation` varchar(20) DEFAULT NULL,
-  `phone_number` varchar(11) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(13) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
   `nationality` varchar(30) DEFAULT NULL,
   `photo` varchar(16) DEFAULT NULL,
   `signature` varchar(16) DEFAULT NULL,
@@ -293,8 +292,8 @@ DROP TABLE IF EXISTS `head_of_settlement`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `head_of_settlement` (
   `employee_id` varchar(10) NOT NULL,
-  `phone_number` varchar(12) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `phone_number` varchar(11) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
   `nid` varchar(10) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `nationality` varchar(20) DEFAULT NULL,
@@ -328,7 +327,7 @@ DROP TABLE IF EXISTS `introducer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `introducer` (
   `Introducer_id` varchar(8) NOT NULL,
-  `name` varchar(40) DEFAULT NULL,
+  `name` varchar(30) DEFAULT NULL,
   `phone_number` varchar(11) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
   `occupation` varchar(20) DEFAULT NULL,
@@ -359,13 +358,13 @@ DROP TABLE IF EXISTS `joint_account`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `joint_account` (
   `joint_account_number` varchar(8) NOT NULL,
-  `title` varchar(2) DEFAULT NULL,
+  `title` varchar(3) DEFAULT NULL,
   `spouse_name` varchar(30) DEFAULT NULL,
   `mother_name` varchar(30) DEFAULT NULL,
   `father_name` varchar(30) DEFAULT NULL,
   `permanent_address` varchar(70) DEFAULT NULL,
   `country` varchar(30) DEFAULT NULL,
-  `phone_number` varchar(12) DEFAULT NULL,
+  `phone_number` varchar(11) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `occupation` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -449,7 +448,7 @@ CREATE TABLE `minor` (
   `guardian_state` varchar(20) DEFAULT NULL,
   `guardian_country` varchar(45) DEFAULT NULL,
   `guardian_telephone` varchar(9) DEFAULT NULL,
-  `guardian_mobile` varchar(12) DEFAULT NULL,
+  `guardian_mobile` varchar(11) DEFAULT NULL,
   `guardian_fax` varchar(12) DEFAULT NULL,
   `guardian_email` varchar(50) DEFAULT NULL,
   `guardian_passport_num` varchar(18) DEFAULT NULL,
@@ -560,7 +559,7 @@ DROP TABLE IF EXISTS `relationship_manager`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `relationship_manager` (
   `employee_id` varchar(10) NOT NULL,
-  `phone_number` varchar(12) DEFAULT NULL,
+  `phone_number` varchar(11) DEFAULT NULL,
   `email` varchar(20) DEFAULT NULL,
   `nid` varchar(10) DEFAULT NULL,
   `dob` date DEFAULT NULL,
@@ -652,4 +651,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-04 19:28:56
+-- Dump completed on 2023-09-05  0:13:55
