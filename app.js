@@ -1,6 +1,8 @@
 // ---Boiler plate code---
 // The express framework is brought in
 const express = require('express');
+const methodOverride = require('method-override');
+
 //multer package to handle multipart form data
 const multer = require('multer');
 const upload = multer();
@@ -9,7 +11,7 @@ const upload = multer();
 const PORT = 5500
 // 'app' is an instance of express()
 const app = express();
-
+app.use(methodOverride('_method'));
 const path = require('path');
 //Setting the templating engine 
 app.set('view engine','ejs');

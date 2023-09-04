@@ -1,4 +1,5 @@
 const express =  require('express');
+const methodOverride = require('method-override');
 const multer = require('multer');
 const upload = multer();
 const adminRoute = express.Router();
@@ -24,7 +25,7 @@ adminRoute.get('/',(req,res) => {
 //Add the sql queries here
 adminRoute.post('/', upload.none(), (req,res) => {
     const {postClientName, postClientAcc, postClientBank, postBankAccountNum, postClientBoNum} = req.body;
-    bank_sql = `INSERT INTO lankabangla.bank (bank_name,account) VALUES ("${postClientBank}","${postBankAccountNum}")`;
+    bank_sql = `INSERT INTO lankabangla.bank (account,bank_name) VALUES ("${postBankAccountNum}","${postClientBank}")`;
     //parent tables must be filled first
     db.query(bank_sql,(err,results) => {
         if (err) throw err;
@@ -42,15 +43,36 @@ adminRoute.post('/', upload.none(), (req,res) => {
         console.log('client Added.');
     })
 });
-//Finish delete and put requests
 adminRoute.delete('/',upload.none(), (req,res) => {
-    const {delClientName, delClientAcc, delBankAccountNum, delClientBoNum} = req.body;
+    const {delClientName, delClientAcc, delBankAccountNum,delClientBoNum} = req.body;
     //delete child records first
-    client_sql = `DELETE FROM lankabangla.client (account_num, client_name,bo_account_number,bank_account_number) VALUES 
-    (${delClientAcc},${delClientName},${delClientBoNum},${delBankAccountNum});`;
+    client_sql = `DELETE FROM lankabangla.client WHERE account_number = "${delClientAcc}" AND client_name = "${delClientName}";`;
     db.query(client_sql, (err, results) => {
         if(err) throw err;
         console.log('client deleted');
     })
+    bank_sql = `DELETE FROM lankabangla.bank WHERE account = "${delBankAccountNum}";`
+    db.query(bank_sql,(err,results) => {
+        if(err) throw err;
+        console.log('bank account deleted');
+    })
+    bo_sql = `DELETE FROM lankabangla.bo_account WHERE bo_number = ${delClientBoNum};`
+    db.query(bo_sql, (err,results) => {
+        if(err) throw err;
+        console.log("bo number deleted.");
+    })
+});
+
+adminRoute.put('/',upload.none(),(req,res) => {
+    const {updateClientName, updateClientTitle, updateClientPhone,updateClientAcc,updateClientFather,updateClientMother} = req.body;
+    client_sql = `UPDATE lankabangla.client SET title = "${updateClientTitle.toUpperCase()}",phone_number = "${updateClientPhone}",father_name = "${updateClientFather}", mother_name = "${updateClientMother}" WHERE client_name = "${updateClientName}" AND account_number = "${updateClientAcc}";`;
+    db.query(client_sql,(err,results) => {
+        if(err) throw err;
+        console.log('update succeeded.');
+    })
+
 })
+
+
+
 module.exports = adminRoute;
